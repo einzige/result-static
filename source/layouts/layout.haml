@@ -1,0 +1,81 @@
+!!!
+%html
+  %head
+    %meta{charset: 'utf-8'}
+    %title= current_page.data.title || 'Юридическое агенство "Результат"'
+    %meta{name: 'description', content: ''}
+    %meta{name: 'author', content: ''}
+    :erb
+      <link rel="stylesheet" type="text/css" href="http://www.cssreset.com/downloads/css-resets/html5-doctor-reset-stylesheet/html5-doctor-reset-stylesheet.min.css">
+      <link href='http://fonts.googleapis.com/css?family=Tenor+Sans|Cuprum:400,700,700italic&subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'>
+    = stylesheet_link_tag 'all', 'magnific-popup'
+
+  %body
+    -#{class: page_classes}
+    .main
+      .container
+        %div{style: "float: left"}
+          .rail
+            .logo
+              .sublogo
+              %h1 Результат
+              %h2 юридическое агенство
+            %ul.menu
+              %li
+                %a.current{href: "/"} О нас
+              %li
+                %a{href: "/services.html"} Услуги
+              %li
+                %a{href: "/costs.html"} Цены
+              %li
+                %a{href: "#"} Отзывы
+              %li
+                %a{href: "/contacts.html"} Контакты
+          .clear
+          .offices
+            - unless current_page.data.offices
+              %h4 Наши офисы
+              = partial 'offices'
+
+        .content
+          .contacts
+            .tel
+              +7 (391)
+              %b 276-10-33
+            %img{src: "http://www.furkeyhomefurniture.com/pages/themes/business_simple/images/phone.png?height=20", style: "opacity: 0.2; float: right; padding-top: 2px;"}/
+            .clear
+            .address Красноярск Афонтовский пер, 7 (офис 125, 1 этаж)
+          .text
+            .hr
+            .clear
+            = yield
+            .clear
+          .clear
+          .space
+          .space
+        .clear
+      %footer
+        %ul
+          %li
+            %a{href: "#"} Главная
+          %li
+            %a{href: "#"} О компании
+          %li
+            %a{href: "#"} Цены
+          %li
+            %a{href: "#"} Законодательство
+          %li
+            %a{href: "#"} Формы документов
+          %li
+            %a{href: "#"} Справочная информация
+          %li
+            %a{href: "#"} Контакты
+        .clear
+        .copyrights © 2006 - 2014 Юридическое Агентство "Результат". Все права защищены.
+        .contacts
+          Телефон: +7 (495) 741-60-20 | +7 (495) 959-51-47
+          +7 (929) 609-90-90 | Факс: +7 (495) 959-51-47
+          Эл. почта: info@feliciya.ru, felicia14@yandex.ru
+
+
+    = javascript_include_tag 'jquery-1.10.2.min.js', 'jquery.magnific-popup.min.js', 'all.js'
